@@ -29,5 +29,10 @@
             android:title="Browser"
             android:icon="@drawable/ic_baseline_open_in_browser_24"
             />
+        <item
+            android:id="@+id/nav_sensor"
+            android:icon="@drawable/ic_pr5"
+            android:title="pr5"
+            />
     </group>
 </menu>

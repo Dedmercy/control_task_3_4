@@ -37,4 +37,9 @@
         android:label="fragment music"
         android:name="ru.mirea.anichkov.mireaproject.ui.music.MusicFragment"
         tools:layout="@layout/fragment_music"/>
+    <fragment
+        android:id="@+id/nav_sensor"
+        android:label="Sensor Fragment"
+        android:name="ru.mirea.anichkov.mireaproject.ui.practice5.SensorFragment"
+        tools:layout="@layout/fragment_sensor"/>
 </navigation>

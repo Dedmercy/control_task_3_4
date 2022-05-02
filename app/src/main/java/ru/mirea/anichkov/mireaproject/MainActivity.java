@@ -1,5 +1,8 @@
 package ru.mirea.anichkov.mireaproject;
 
+import android.Manifest;
+import android.content.Context;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Menu;
@@ -8,6 +11,9 @@ import android.webkit.WebView;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
 
+import androidx.annotation.NonNull;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
@@ -21,6 +27,15 @@ public class MainActivity extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
     private ActivityMainBinding binding;
+    private int ImagePermission;
+    private int MemoryPermission;
+    private int ReadMemoryPermission;
+    private int RecordPermission;
+    public static boolean isWorkCamera = false;
+    public static  boolean isWorkRecording = false;
+    private static final int REQUEST_CODE_PERMISSION = 100;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +43,28 @@ public class MainActivity extends AppCompatActivity {
 
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+
+
+        ImagePermission = ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA);
+        MemoryPermission = ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE);
+        RecordPermission = ContextCompat.checkSelfPermission(this, Manifest.permission.RECORD_AUDIO);
+        ReadMemoryPermission = ContextCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE);
+
+        if(ImagePermission == PackageManager.PERMISSION_GRANTED && MemoryPermission == PackageManager.PERMISSION_GRANTED){
+            isWorkCamera = true;
+        }
+        else {
+            ActivityCompat.requestPermissions(this,new String[]
+                    {Manifest.permission.CAMERA, Manifest.permission.WRITE_EXTERNAL_STORAGE}, REQUEST_CODE_PERMISSION);
+        }
+        if(RecordPermission == PackageManager.PERMISSION_GRANTED && MemoryPermission == PackageManager.PERMISSION_GRANTED &&
+                ReadMemoryPermission == PackageManager.PERMISSION_GRANTED){
+            isWorkRecording = true;
+        }
+        else {
+            ActivityCompat.requestPermissions(this,new String[]
+                    {Manifest.permission.RECORD_AUDIO, Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.READ_EXTERNAL_STORAGE}, REQUEST_CODE_PERMISSION);
+        }
 
         setSupportActionBar(binding.appBarMain.toolbar);
         binding.appBarMain.fab.setOnClickListener(new View.OnClickListener() {
@@ -72,4 +109,19 @@ public class MainActivity extends AppCompatActivity {
             super.onBackPressed();
         }
     }
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        if (requestCode == REQUEST_CODE_PERMISSION) {
+            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED){
+                isWorkCamera = true;
+                isWorkRecording = true;
+            }
+            else{
+                isWorkCamera = false;
+                isWorkRecording = false;
+            }
+        }
+    }
+
 }

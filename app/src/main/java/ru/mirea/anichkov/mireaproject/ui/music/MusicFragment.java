@@ -27,7 +27,6 @@ public class MusicFragment extends Fragment {
     private Button btnStart, btnPause, btnRestart;
     private ProgressBar progressBar;
     private MediaPlayer player;
-    private boolean statusPlaying = false;
     Handler handler;
     final String TAG = "My run";
     int progress;
@@ -115,7 +114,6 @@ public class MusicFragment extends Fragment {
                 if (player.isPlaying()) {
                     player.pause();
                     player.seekTo(0);
-                    statusPlaying = false;
                 }
             }
         };
@@ -125,7 +123,6 @@ public class MusicFragment extends Fragment {
             public void onClick(View view) {
                 if (player.isPlaying()){
                     player.pause();
-                    statusPlaying = false;
                 }
             }
         };
