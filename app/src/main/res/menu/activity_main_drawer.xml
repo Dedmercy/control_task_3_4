@@ -34,5 +34,14 @@
             android:icon="@drawable/ic_pr5"
             android:title="pr5"
             />
+        <item
+            android:id="@+id/nav_history"
+            android:icon="@drawable/ic_history"
+            android:title="History" />
+        <item
+            android:id="@+id/nav_settings"
+            android:icon="@drawable/ic_baseline_settings_24"
+            android:title="Settings"
+            />
     </group>
 </menu>

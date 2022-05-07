@@ -42,4 +42,29 @@
         android:label="Sensor Fragment"
         android:name="ru.mirea.anichkov.mireaproject.ui.practice5.SensorFragment"
         tools:layout="@layout/fragment_sensor"/>
+    <fragment
+        android:id="@id/nav_history"
+        android:name="ru.mirea.anichkov.mireaproject.ui.history.HistoryFragment"
+        android:label="Histoty"
+        tools:layout="@layout/history_fragment"
+        >
+        <action
+            android:id="@+id/action_nav_history_to_nav_make_history"
+            app:destination="@id/nav_make_history" />
+    </fragment>
+    <fragment
+        android:id="@+id/nav_make_history"
+        android:name="ru.mirea.anichkov.mireaproject.ui.history.MakeHistoryFragment"
+        android:label="Make new history"
+        tools:layout="@layout/fragment_make_history"
+        >
+        <action
+            android:id="@+id/action_nav_make_history_to_nav_history"
+            app:destination="@id/nav_history" />
+    </fragment>
+    <fragment
+        android:id="@+id/nav_settings"
+        android:name="ru.mirea.anichkov.mireaproject.ui.settings.SettingsFragment"
+        android:label="Settings"
+        tools:layout="@layout/settings_fragment"/>
 </navigation>
