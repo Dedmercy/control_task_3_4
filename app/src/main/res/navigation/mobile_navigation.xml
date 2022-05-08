@@ -67,4 +67,9 @@
         android:name="ru.mirea.anichkov.mireaproject.ui.settings.SettingsFragment"
         android:label="Settings"
         tools:layout="@layout/settings_fragment"/>
+    <fragment
+        android:id="@+id/nav_network_resources"
+        android:label="Network resources"
+        android:name="ru.mirea.anichkov.mireaproject.ui.network_resourses.NetworkResourcesFragment"
+        tools:layout="@layout/fragment_network_resources"/>
 </navigation>

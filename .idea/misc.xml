@@ -15,6 +15,7 @@
         <entry key="..\:/Users/DNS/AndroidStudioProjects/MireaProject/app/src/main/res/drawable/ic_pr5.xml" value="0.1" />
         <entry key="..\:/Users/DNS/AndroidStudioProjects/MireaProject/app/src/main/res/drawable/list_item.xml" value="0.1" />
         <entry key="..\:/Users/DNS/AndroidStudioProjects/MireaProject/app/src/main/res/drawable/side_nav_bar.xml" value="0.1" />
+        <entry key="..\:/Users/DNS/AndroidStudioProjects/MireaProject/app/src/main/res/layout/activity_login_screen.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/DNS/AndroidStudioProjects/MireaProject/app/src/main/res/layout/activity_main.xml" value="0.22826086956521738" />
         <entry key="..\:/Users/DNS/AndroidStudioProjects/MireaProject/app/src/main/res/layout/app_bar_main.xml" value="0.22826086956521738" />
         <entry key="..\:/Users/DNS/AndroidStudioProjects/MireaProject/app/src/main/res/layout/content_main.xml" value="0.22826086956521738" />
@@ -24,10 +25,12 @@
         <entry key="..\:/Users/DNS/AndroidStudioProjects/MireaProject/app/src/main/res/layout/fragment_home.xml" value="0.22826086956521738" />
         <entry key="..\:/Users/DNS/AndroidStudioProjects/MireaProject/app/src/main/res/layout/fragment_make_history.xml" value="0.2504528985507246" />
         <entry key="..\:/Users/DNS/AndroidStudioProjects/MireaProject/app/src/main/res/layout/fragment_music.xml" value="0.22826086956521738" />
+        <entry key="..\:/Users/DNS/AndroidStudioProjects/MireaProject/app/src/main/res/layout/fragment_network_resources.xml" value="0.2504528985507246" />
         <entry key="..\:/Users/DNS/AndroidStudioProjects/MireaProject/app/src/main/res/layout/fragment_sensor.xml" value="0.2" />
         <entry key="..\:/Users/DNS/AndroidStudioProjects/MireaProject/app/src/main/res/layout/fragment_slideshow.xml" value="0.22826086956521738" />
         <entry key="..\:/Users/DNS/AndroidStudioProjects/MireaProject/app/src/main/res/layout/history_fragment.xml" value="0.2504528985507246" />
         <entry key="..\:/Users/DNS/AndroidStudioProjects/MireaProject/app/src/main/res/layout/list_item.xml" value="0.25" />
+        <entry key="..\:/Users/DNS/AndroidStudioProjects/MireaProject/app/src/main/res/layout/list_item2.xml" value="0.16" />
         <entry key="..\:/Users/DNS/AndroidStudioProjects/MireaProject/app/src/main/res/layout/nav_header_main.xml" value="0.22826086956521738" />
         <entry key="..\:/Users/DNS/AndroidStudioProjects/MireaProject/app/src/main/res/layout/pr5_fragment.xml" value="0.2504528985507246" />
         <entry key="..\:/Users/DNS/AndroidStudioProjects/MireaProject/app/src/main/res/layout/settings_fragment.xml" value="0.2504528985507246" />

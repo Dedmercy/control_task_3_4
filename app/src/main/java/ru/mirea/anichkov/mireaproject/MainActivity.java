@@ -34,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
     public static boolean isWorkCamera = false;
     public static  boolean isWorkRecording = false;
     private static final int REQUEST_CODE_PERMISSION = 100;
+    public static LoginScreen loginScreen;
 
 
 
