@@ -4,6 +4,7 @@ import static android.content.Context.MODE_PRIVATE;
 
 import androidx.lifecycle.ViewModelProvider;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 
@@ -18,6 +19,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import ru.mirea.anichkov.mireaproject.LoginScreen;
+import ru.mirea.anichkov.mireaproject.MainActivity;
 import ru.mirea.anichkov.mireaproject.R;
 import ru.mirea.anichkov.mireaproject.databinding.SettingsFragmentBinding;
 
@@ -30,7 +33,7 @@ public class SettingsFragment extends Fragment {
     public static SharedPreferences sharedSettings;
 
     private EditText savedText;
-    private Button btnAdd;
+    private Button btnAdd, btnSignOut;
 
 
 
@@ -46,6 +49,7 @@ public class SettingsFragment extends Fragment {
 
         savedText = inflatedView.findViewById(R.id.SavedTextEditText);
         btnAdd = inflatedView.findViewById(R.id.btnAddPrefereces);
+        btnSignOut = inflatedView.findViewById(R.id.btnSignOut);
         sharedSettings = getActivity().getPreferences(MODE_PRIVATE);
 
 
@@ -61,7 +65,17 @@ public class SettingsFragment extends Fragment {
             }
         };
 
+        View.OnClickListener SignOutOnClick = new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), LoginScreen.class);
+                startActivity(intent);
+                MainActivity.loginScreen.signOut(getView());
+            }
+        };
+
         btnAdd.setOnClickListener(AddPreferencesOnClick);
+        btnSignOut.setOnClickListener(SignOutOnClick);
 
         return inflatedView;
     }

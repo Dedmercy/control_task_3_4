@@ -72,4 +72,9 @@
         android:label="Network resources"
         android:name="ru.mirea.anichkov.mireaproject.ui.network_resourses.NetworkResourcesFragment"
         tools:layout="@layout/fragment_network_resources"/>
+    <fragment
+        android:id="@+id/nav_room"
+        android:label="Room"
+        android:name="ru.mirea.anichkov.mireaproject.ui.room.RoomFragment"
+        tools:layout="@layout/fragment_room"/>
 </navigation>

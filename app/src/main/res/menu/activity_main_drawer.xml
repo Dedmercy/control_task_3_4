@@ -47,5 +47,10 @@
             android:id="@+id/nav_network_resources"
             android:icon="@drawable/ic_cloud"
             android:title="Network resources"/>
+        <item
+            android:id="@+id/nav_room"
+            android:icon="@drawable/ic_baseline_bd"
+            android:title="Room"/>
+
     </group>
 </menu>

@@ -145,7 +145,8 @@ public class LoginScreen extends AppCompatActivity {
                     }
                 });
     }
-    private void signOut() {
+
+    public void signOut(View view) {
         mAuth.signOut();
         updateUI(null);
     }
