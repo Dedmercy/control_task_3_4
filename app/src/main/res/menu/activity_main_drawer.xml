@@ -51,6 +51,10 @@
             android:id="@+id/nav_room"
             android:icon="@drawable/ic_baseline_bd"
             android:title="Room"/>
+        <item
+            android:id="@+id/nav_google_map"
+            android:title="Google map"
+            android:icon="@drawable/ic_baseline_map_24"/>
 
     </group>
 </menu>

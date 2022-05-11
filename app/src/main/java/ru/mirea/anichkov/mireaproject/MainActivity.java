@@ -31,9 +31,11 @@ public class MainActivity extends AppCompatActivity {
     private int MemoryPermission;
     private int ReadMemoryPermission;
     private int RecordPermission;
+    public static  boolean ispermissionGeo = false;
     public static boolean isWorkCamera = false;
     public static  boolean isWorkRecording = false;
     private static final int REQUEST_CODE_PERMISSION = 100;
+    private final int REQUEST_CODE_GEO = 102;
     public static LoginScreen loginScreen;
 
 
@@ -50,6 +52,15 @@ public class MainActivity extends AppCompatActivity {
         MemoryPermission = ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE);
         RecordPermission = ContextCompat.checkSelfPermission(this, Manifest.permission.RECORD_AUDIO);
         ReadMemoryPermission = ContextCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE);
+        int geoPermissionStatusFine = ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION);
+        int geoPermissionStatusCoarse = ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION);
+        if (geoPermissionStatusFine == PackageManager.PERMISSION_GRANTED
+                && geoPermissionStatusCoarse == PackageManager.PERMISSION_GRANTED) {
+            ispermissionGeo = true;
+        } else {
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION},
+                    REQUEST_CODE_GEO);
+        }
 
         if(ImagePermission == PackageManager.PERMISSION_GRANTED && MemoryPermission == PackageManager.PERMISSION_GRANTED){
             isWorkCamera = true;
@@ -113,15 +124,19 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-        if (requestCode == REQUEST_CODE_PERMISSION) {
-            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED){
-                isWorkCamera = true;
-                isWorkRecording = true;
-            }
-            else{
-                isWorkCamera = false;
-                isWorkRecording = false;
-            }
+        switch (requestCode) {
+            case REQUEST_CODE_PERMISSION:
+                isWorkCamera = grantResults.length > 0
+                        && grantResults[0] == PackageManager.PERMISSION_GRANTED;
+                isWorkRecording = grantResults.length > 0
+                        && grantResults[0] == PackageManager.PERMISSION_GRANTED;
+                break;
+            case REQUEST_CODE_GEO:
+                ispermissionGeo = grantResults.length > 0
+                && grantResults[0] == PackageManager.PERMISSION_GRANTED
+                && grantResults[1] == PackageManager.PERMISSION_GRANTED;
+                break;
+
         }
     }
 
